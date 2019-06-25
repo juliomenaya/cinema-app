@@ -1,0 +1,15 @@
+{% extends 'cinema/base.html' %}
+{% load static %} 
+{% block content %}
+
+    <div class="col-md-12">
+        <button type="submit" class="btn btn-dark" id="btnCorte">Obtener corte de caja</button>
+    
+        <div id="corte-container">
+            <!-- Aqui se creara la lista con los totales obtenidos en la venta de boletos -->
+        </div>
+    </div>
+
+    <script type="text/javascript" src="{% static "cinema/js/administracion.js" %}"></script>
+    
+{% endblock %}

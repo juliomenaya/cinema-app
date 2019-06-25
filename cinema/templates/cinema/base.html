@@ -1,0 +1,92 @@
+<head>
+  {% load bootstrap4 %} {# CSS Bootstrap #} {% bootstrap_css %} 
+  {% load static %} 
+
+
+  <!-- Jquery para ser usados en los archivos js de la propia aplicacion
+        al ser importado aquí, todos los templates que heredes de está base podrán
+        usarlo sin la nacesidad de ser importado en el template en particular
+  -->
+  <script type="text/javascript" src="{% static "cinema/js/jquery-3.4.1.min.js" %}"></script>
+  <link rel="stylesheet" href="{% static "cinema/cinema.css" %}"/>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="fixed-top">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/cinema">CineJuls</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarTogglerDemo02"
+          aria-controls="navbarTogglerDemo02"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" href="/cinema"
+                >Turnos <span class="sr-only">(current)</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/cinema/registro">Registro</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/cinema/administracion">Administración</a>
+            </li>            
+          </ul>
+        </div>
+      </nav>
+        <!-- Fin navbar -->
+  </div>  
+  <!-- <div id="banner" class="container-fluid">
+        
+    </div>   -->
+  <!-- <h1 class="text-center">Bienvenido sea usted ma Lord</h1> -->
+  <div class="pl-5 pr-5 mt-2 d-flex justify-content-center" style="height: 90vh">
+    <div class="row align-self-center px-md-5 mx-md-5">
+
+      {% block content %} 
+
+      {% endblock %}
+
+    </div>    
+  </div>
+
+  <footer class="fixed-bottom bg-dark">      
+    <div class="row text-center">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <ul class="list-inline text-center">
+          <li class="list-inline-item">
+            <a href="#">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="#">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+        </ul>
+        <p class="copyright text-muted">
+          Copyright &copy; Julio Méndez Ayala, Facultad de Ingeniería, 2019
+        </p>
+      </div>
+    </div>    
+  </footer>
+
+  {% bootstrap_javascript jquery='full' %}
+</body>

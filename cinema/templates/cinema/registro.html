@@ -1,0 +1,132 @@
+{% extends 'cinema/base.html' %}
+
+{% block content %}
+    <!-- {% load staticfiles %} -->
+    <div class="col-md-12 mb-2 mt-3">
+        {% if turno %}
+            <h1 class="text-center">Turno de la placa: {{turno.placa}}</h1>                        
+            <div class="col-md-12 col-sm-12" style="min-width: 800px">
+        
+                <div class="alert alert-warning text-center" role="alert" style="display: none">
+                        Sólo se pueden comprar hasta 8 boletos
+                </div>
+        
+                <table class="tbl-boletos">
+                    <thead>
+                        <tr>
+                            <td>Descripción</td>
+                            <td>Cantidad</td>
+                            <td>Precio</td>
+                            <td>Subtotal</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Niños</td>
+                            <td>
+                                <div>
+                                    <button class="boton-redondo mx-3" id="btnRestaBoletoNinio">-</button>
+                                        <span id="boletosNinio">0</span>
+                                    <button class="boton-redondo mx-3" id="btnAgregaBoletoNinio">+</button>
+                                </div>
+                            </td>
+                            <td><span id="precioBoletoNinio"></span></td>
+                            <td><span id="subtotalBoletosNinio">$0</span></td>
+                        </tr>
+                        <tr>
+                            <td>Adultos</td>
+                            <td>
+                                <div style="display: inline-block">
+                                    <button class="boton-redondo mx-3" id="btnRestaBoletoAdulto">-</button>
+                                        <span id="boletosAdulto">0</span>
+                                    <button class="boton-redondo mx-3" id="btnAgregaBoletoAdulto">+</button>
+                                </div>
+                            </td>
+                            <td><span id="precioBoletoAdulto"></span></td>
+                            <td><span id="subtotalBoletosAdulto">$0</span></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td style="width: 200px; font-weight: bold">Total: <span id="total">$0</span></td>
+        
+                        </tr>
+                    </tbody>            
+                </table>
+        
+                <p style="margin-top: 30px">Elija un lugar para estacionarse</p>
+                <ul class="cod-colores">
+                    <li><span style="color: brown">Lugares ocupados</span></li>
+                    <li><span style="color: green">Tu lugar</span></li>
+                    <li><span>Lugares disponibles</span></li>
+                </ul>
+        
+                <table class="tbl-parking mt-3" id="parking">
+                    <thead>
+                        <tr>
+                            <td></td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+                        <tr>
+                            <td>A</td>
+                            <td><i class="fas fa-car-alt" style="font-size: 2rem;" id="A1"></i></td>
+                            <td><i class="fas fa-car-alt" style="font-size: 2rem;" id="A2"></i></td>
+                            <td><i class="fas fa-car-alt" style="font-size: 2rem;" id="A3"></i></td>
+                            <td><i class="fas fa-car-alt" style="font-size: 2rem;" id="A4"></i></td>
+                            <td><i class="fas fa-car-alt" style="font-size: 2rem;" id="A5"></i></td>
+                        </tr>
+                        <tr>
+                            <td>B</td>
+                            <td><i class="fas fa-car-alt" style="font-size: 2rem;" id="B1"></i></td>
+                            <td><i class="fas fa-car-alt" style="font-size: 2rem;" id="B2"></i></td>
+                            <td><i class="fas fa-car-alt" style="font-size: 2rem;" id="B3"></i></td>
+                            <td><i class="fas fa-car-alt" style="font-size: 2rem;" id="B4"></i></td>
+                            <td><i class="fas fa-car-alt" style="font-size: 2rem;" id="B5"></i></td>
+                        </tr>
+                        <tr>
+                            <td>C</td>
+                            <td><i class="fas fa-car-alt" style="font-size: 2rem;" id="C1"></i></td>
+                            <td><i class="fas fa-car-alt" style="font-size: 2rem;" id="C2"></i></td>
+                            <td><i class="fas fa-car-alt" style="font-size: 2rem;" id="C3"></i></td>
+                            <td><i class="fas fa-car-alt" style="font-size: 2rem;" id="C4"></i></td>
+                            <td><i class="fas fa-car-alt" style="font-size: 2rem;" id="C5"></i></td>
+                        </tr>
+                        <tr>
+                            <td>D</td>
+                            <td><i class="fas fa-car-alt" style="font-size: 2rem;" id="D1"></i></td>
+                            <td><i class="fas fa-car-alt" style="font-size: 2rem;" id="D2"></i></td>
+                            <td><i class="fas fa-car-alt" style="font-size: 2rem;" id="D3"></i></td>
+                            <td><i class="fas fa-car-alt" style="font-size: 2rem;" id="D4"></i></td>
+                            <td><i class="fas fa-car-alt" style="font-size: 2rem;" id="D5"></i></td>
+                        </tr>
+                        <tr>
+                            <td>E</td>
+                            <td><i class="fas fa-car-alt" style="font-size: 2rem;" id="E1"></i></td>
+                            <td><i class="fas fa-car-alt" style="font-size: 2rem;" id="E2"></i></td>
+                            <td><i class="fas fa-car-alt" style="font-size: 2rem;" id="E3"></i></td>
+                            <td><i class="fas fa-car-alt" style="font-size: 2rem;" id="E4"></i></td>
+                            <td><i class="fas fa-car-alt" style="font-size: 2rem;" id="E5"></i></td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+        
+                {% csrf_token %}
+                <input type="hidden" name="placa" value="{{ turno.placa }}">
+                <button type="submit" class="btn btn-lg btn-dark mt-3" id="btnListo">Listo!</button>
+            </div>
+        {% else %}
+            <h1>La fila está vacía :)</h1>
+        {% endif %}
+    </div>
+    
+    <script type="text/javascript" src="{% static "cinema/js/registro.js" %}"></script>
+{% endblock %}
